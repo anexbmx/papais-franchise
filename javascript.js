@@ -103,7 +103,12 @@ const steps = [
 		fields: [
 			{ id: 'firstName', label: 'Vorname', placeholder: 'Anne' },
 			{ id: 'lastName', label: 'Nachname', placeholder: 'Schmidt' },
-			{ id: 'phone', label: 'Telefonnummer', placeholder: '01512 3456789' },
+			{
+				id: 'phone',
+				label: 'Telefonnummer',
+				placeholder: '01512 3456789',
+				type: 'tel',
+			},
 		],
 		buttonLabel: 'Senden',
 		helper: 'Drücken Sie Cmd ⌘ + Enter ↵',
@@ -435,7 +440,7 @@ function renderContact(step) {
 		label.textContent = field.label;
 
 		const input = document.createElement('input');
-		input.type = 'text';
+		input.type = field.type || 'text';
 		input.placeholder = field.placeholder || '';
 		input.value = stored[field.id] || '';
 		input.addEventListener('input', (event) => {
