@@ -18,6 +18,7 @@ const steps = [
 			'Wir verwenden Ihre E-Mail-Adresse, um Sie über den Status Ihrer Bewerbung zu informieren.',
 		placeholder: 'name@beispiel.de',
 		validate: 'email',
+		inputType: 'email',
 		buttonLabel: 'Weiter',
 	},
 	{
@@ -294,8 +295,8 @@ function renderInput(step) {
 	const wrapper = document.createElement('div');
 	wrapper.className = 'input-group';
 
-	const input = document.createElement('input');
-	input.type = 'text';
+const input = document.createElement('input');
+input.type = step.inputType || 'text';
 	input.placeholder = step.placeholder || '';
 	input.value = state.answers[step.id] || '';
 	input.addEventListener('input', (event) => {
@@ -311,7 +312,7 @@ function renderTextarea(step) {
 	const wrapper = document.createElement('div');
 	wrapper.className = 'input-group';
 
-	const textarea = document.createElement('input');
+	const textarea = document.createElement('textarea');
 	textarea.placeholder = step.placeholder || '';
 	textarea.value = state.answers[step.id] || '';
 	textarea.addEventListener('input', (event) => {
