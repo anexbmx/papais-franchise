@@ -463,7 +463,7 @@ function renderActions(step) {
 	if (state.index > 0 && step.type !== 'submit') {
 		const back = document.createElement('button');
 		back.type = 'button';
-		back.className = 'button';
+		back.className = 'button button-secondary';
 		back.textContent = 'Zurück';
 		back.addEventListener('click', goPrev);
 		row.appendChild(back);
@@ -473,9 +473,11 @@ function renderActions(step) {
 	next.type = 'button';
 	next.className = 'button';
 	next.textContent = step.buttonLabel || 'Weiter';
+
 	next.addEventListener('click', () => {
 		goNext();
 	});
+
 	row.appendChild(next);
 
 	if (step.helper) {
